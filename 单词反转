@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstring>
+const int ArSize = 500;
+int main(){
+	char str[ArSize];
+	std::cin.get(str, ArSize).get();
+	int i = 0, lenth = strlen(str);
+	int recentPosition = i, j = i;
+	while (i < lenth)
+	{
+		while (str[i] != ' '&& i!=(lenth-1))
+		{
+			i++;
+		}
+		if (i != lenth - 1)
+		{
+			recentPosition = i;
+			i--;
+			while (i >= j){
+				std::cout << str[i];
+				i--;
+			}
+			std::cout << str[recentPosition];
+			j = i = recentPosition + 1;
+		}
+		else
+		{
+			while (i >= j){
+				std::cout << str[i]; i--;
+			}
+			std::cout << str[recentPosition];
+			break;
+		}
+	}
+	return 1;
+}
